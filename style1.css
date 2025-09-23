@@ -1,0 +1,616 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8fafc;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+/* Navigation */
+.navbar {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #6366f1;
+}
+
+.nav-logo i {
+    font-size: 1.8rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #64748b;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #6366f1;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #6366f1;
+}
+
+/* Main Content */
+.main-content {
+    min-height: calc(100vh - 70px);
+}
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 80px 0;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #fbbf24;
+}
+.high {
+color: #22dc22;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+.btn-primary {
+    background: #141697;
+    color: white;
+}
+.btn-primary:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    background: rgba(46, 14, 192, 0.2);
+    color: #141697;
+    border: 1px solid rgba(20, 43, 197, 0.3);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+/*=========================
+MICROPHONE CIRCLE
+========================= */
+/* Microphone Circle */
+.mic-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mic-circle {
+  width: 300px;   /*  circle ka width size increase */
+  height: 300px;  /*  circle ka height size increase */
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid rgba(255, 255, 255, 0.5); /* thoda mota border */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+.mic-circle i {
+  font-size: 70px;  /* ⬅️ icon ka size bada */
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.mic-circle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.mic-circle:hover i {
+  transform: scale(1.3); /* hover pe aur bada ho jaye */
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .mic-container {
+    margin-top: 30px;
+  }
+}
+
+/*2nd page*/
+
+.container {
+    text-align: center; /* container ke andar sabhi text ko center karega */
+    margin-top: 100px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.section-title {
+    text-align: center;
+    font-size:3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px; /* heading ke niche thoda gap */
+    color: #1f2937;
+}
+
+
+/* AI Section */
+
+/* Parent container me flexbox */
+.ai-section {
+  display: flex;
+  justify-content: space-between; /* left and right me space */
+  align-items: flex-start;        /* dono upar se align ho */
+  gap: 30px;    
+  margin-right: 30px;  
+  margin-bottom: 90px;                /* left aur right ke beech gap */
+}
+
+.ai-left {
+  flex: 1;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.ai-left h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  margin-right: 30px;
+  padding-left: 30px;
+  
+}
+.ai-left p {
+  margin-bottom: 30px;
+  color: #555;
+  margin-right: 30px;
+  padding-left: 30px;
+}
+
+.ai-left ul {
+  list-style: none;
+  margin-right: 30px;
+  padding-left: 30px;
+  margin-bottom: 60px;
+}
+
+.ai-left ul li {
+  margin-bottom: 20px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.ai-left ul li::before {
+  content: "✔";
+  position: absolute;
+  margin-bottom: 70px;
+  left: 0;
+  color: #00b300;
+  font-size: 18px;
+}
+
+.ai-right {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  position: relative;
+  top: -20px;
+  align-items: flex-end;   /* right side adjust */
+  width: 180px;
+  height: 180px;
+  margin-bottom: 30px;
+  margin-left:auto ;
+  margin-top: -20px;
+}
+
+.stat {
+  background: #fff;                /* box background */
+  padding: 30px 25px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  border-radius: 10px;             /* rounded corners */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* shadow effect */
+  text-align: center;
+  width: 300px;
+  transition: transform 0.3s ease; /* hover animation */
+}
+
+.stat:hover {
+  transform: translateY(-5px);
+}
+
+.stat h2 {
+  font-size: 40px;
+  color: #007bff;
+  margin: 0;
+}
+
+.stat p {
+  font-size: 20px;
+  color: #555;
+  margin: 5px 0 0 0;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ai-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .ai-right {
+    align-items: center;   /* mobile pe center me */
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  .stat {
+    max-width: 250px;
+  }
+}
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 20px;
+    background: #f9f9f9;
+}
+
+.hero h2 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #555;
+  max-width: 600px;
+  margin-bottom: 10px;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+  gap: 30px;
+  flex-wrap: wrap; /* responsive ke liye */
+}
+
+.feature-box {
+  background: #fff;
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/*Icon styling*/
+.icon {
+  font-size: 40px;
+  color: #007bff;
+  margin-bottom: 15px;
+  background: #e6f0ff;
+  padding: 15px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.feature-box h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.feature-box p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .features {
+   gap: 20px;
+  }
+}
+@media(max-width:768px) {
+    
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar ul {
+    margin-top: 10px;
+  }
+
+  .navbar ul li {
+    margin: 10px;
+  }
+}
+
+/* ============================
+   Main Banner Styling (Hero Section Updated)
+============================ */
+.main-banner {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #007bff, #00bfff);
+  padding: 20px;
+  color: #fff;
+}
+
+.banner-content {
+  max-width: 600px;
+  padding: 20px;
+}
+
+.banner-content h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.banner-content p {
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: #f1f1f1;
+}
+
+/* CTA Button */
+.cta-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #fff;
+  color: #007bff;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn:hover {
+  background: #f1f1f1;
+  transform: translateY(-3px);
+}
+
+/* ============================
+   Responsive Design
+============================ */
+@media (max-width: 768px) {
+  .banner-content h1 {
+    font-size: 28px;
+  }
+
+  .banner-content p {
+    font-size: 16px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar ul {
+    margin-top: 10px;
+  }
+
+  .navbar ul li {
+    margin: 10px;
+  }
+}
+
+/* ============================
+   Footer Section
+============================ */
+.footer {
+  background: #0d0d0d;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* GroomifyAI Logo */
+.footer-logo {
+  color: #007bff;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.footer-column p {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.5;
+  max-width: 250px;
+}
+
+/* Links */
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #007bff;
+}
+
+/* Social Icons */
+.social-icons a {
+  display: inline-block;
+  font-size: 18px;
+  color: #ccc;
+  margin-right: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+  transform: scale(1.2);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #777;
+}
+
+/* ============================
+   Responsive Design
+============================ */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+  }
+}
