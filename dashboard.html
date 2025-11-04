@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Dashboard - GroomifyAI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header dashboard-header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <a href="index.html"><h2>GroomifyAI</h2></a>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="active">Practice</a>
+                <a href="progress.html">Progress</a>
+                <div class="user-menu">
+                    <button class="user-button" id="userMenuButton">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="userNameHeader">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="progress.html"><i class="fas fa-chart-line"></i> Progress</a>
+                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="dashboard-welcome">
+                <h1>Welcome back, <span id="userName">User</span>!</h1>
+                <p>Ready to practice your communication skills? Choose a scenario and start speaking.</p>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Left Column: Scenario Selection -->
+                <div class="scenario-panel panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-clipboard-list"></i> Practice Scenarios</h3>
+                    </div>
+                    <div class="scenario-selector">
+                        <div class="scenario-category">
+                            <h4>Interview Scenarios</h4>
+                            <div class="scenario-options">
+                                <button class="scenario-btn active" data-scenario="technical-interview">
+                                    Technical Interview
+                                </button>
+                                <button class="scenario-btn" data-scenario="behavioral-interview">
+                                    Behavioral Interview
+                                </button>
+                                <button class="scenario-btn" data-scenario="group-discussion">
+                                    Group Discussion
+                                </button>
+                            </div>
+                        </div>
+                        <div class="scenario-category">
+                            <h4>Presentation Scenarios</h4>
+                            <div class="scenario-options">
+                                <button class="scenario-btn" data-scenario="project-presentation">
+                                    Project Presentation
+                                </button>
+                                <button class="scenario-btn" data-scenario="sales-pitch">
+                                    Sales Pitch
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="current-scenario">
+                        <h4>Current Scenario:</h4>
+                        <div class="scenario-card" id="currentScenarioCard">
+                            <h5 id="scenarioTitle">Technical Interview</h5>
+                            <p id="scenarioDescription">
+                                You're in a technical interview for a software developer position. The interviewer is asking about your experience with JavaScript and problem-solving approach. Stay confident, provide specific examples, and explain your thought process clearly.
+                            </p>
+                            <div class="scenario-tags">
+                                <span class="tag">Difficulty: Medium</span>
+                                <span class="tag">Duration: 5-10 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Column: Recording Interface -->
+                <div class="recording-panel panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-microphone"></i> Recording Studio</h3>
+                    </div>
+                    <div class="recording-interface">
+                        <div class="mic-container">
+                            <button class="mic-button" id="micButton">
+                                <i class="fas fa-microphone" id="micIcon"></i>
+                            </button>
+                            <div class="recording-status" id="recordingStatus">
+                                <span>Click to start recording</span>
+                            </div>
+                        </div>
+                        <div class="recording-controls">
+                            <button class="control-btn" id="playButton" disabled>
+                                <i class="fas fa-play"></i>
+                                Play
+                            </button>
+                            <button class="control-btn" id="resetButton">
+                                <i class="fas fa-refresh"></i>
+                                Reset
+                            </button>
+                        </div>
+                        <div class="recording-timer">
+                            <span id="recordingTime">00:00</span>
+                        </div>
+                    </div>
+                    <div class="prompt-generator">
+                        <h4>AI Image Prompt</h4>
+                        <p>Generate a visual context for your practice session:</p>
+                        <div class="prompt-input-group">
+                            <input type="text" id="imagePrompt" placeholder="e.g., Create a professional meeting room">
+                            <button class="btn btn-secondary" onclick="generateImage()">
+                                <i class="fas fa-image"></i>
+                                Generate
+                            </button>
+                        </div>
+                        <div class="generated-image" id="generatedImageContainer">
+                            <img id="generatedImage" src="" alt="Generated context image" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: AI Feedback -->
+                <div class="feedback-panel panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-brain"></i> AI Feedback</h3>
+                    </div>
+                    <div class="feedback-content">
+                        <div class="transcription-section">
+                            <h4>Transcription</h4>
+                            <div class="transcription-box" id="transcriptionBox">
+                                <p class="placeholder-text">Your speech will be transcribed here...</p>
+                            </div>
+                        </div>
+                        <div class="analysis-section">
+                            <h4>AI Analysis</h4>
+                            <div class="analysis-metrics" id="analysisMetrics">
+                                <div class="metric">
+                                    <span class="metric-label">Word Count:</span>
+                                    <span class="metric-value" id="wordCount">--</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Speaking Speed:</span>
+                                    <span class="metric-value" id="speakingSpeed">-- WPM</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Confidence Level:</span>
+                                    <span class="metric-value" id="confidenceLevel">--</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Sentiment:</span>
+                                    <span class="metric-value" id="sentiment">--</span>
+                                </div>
+                            </div>
+                            <div class="improvement-notes" id="improvementNotes">
+                                <h5>Improvement Suggestions:</h5>
+                                <ul id="suggestionsList">
+                                    <li class="placeholder-text">Complete a recording to see AI feedback...</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <h3>Session Progress</h3>
+                    <span class="progress-percentage" id="progressPercentage">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+                <div class="session-stats">
+                    <div class="stat">
+                        <span>Sessions Today</span>
+                        <strong id="sessionsToday">0</strong>
+                    </div>
+                    <div class="stat">
+                        <span>Total Practice Time</span>
+                        <strong id="totalTime">0 min</strong>
+                    </div>
+                    <div class="stat">
+                        <span>Current Streak</span>
+                        <strong id="currentStreak">0 days</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
